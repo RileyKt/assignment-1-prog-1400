@@ -1,8 +1,8 @@
 class Student {
-    private String name;
-    private double assignment1;
-    private double assignment2;
-    private double totalMarks;
+    String name;
+    double assignment1;
+    double assignment2;
+    double totalMarks;
 
     //constructor
     public Student(String name, double assignment1, double assignment2) {

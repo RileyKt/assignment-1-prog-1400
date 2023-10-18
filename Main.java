@@ -13,31 +13,55 @@ public class Main {
 
         String name;
         double assignment1, assignment2;
+        Course[] courses = new Course[2];
         Student[] javaStudents = new Student[6];
         Student[] pythonStudents = new Student[6];
+        double assignment1Average;
+        double assignment2Average;
+        double totalAssignment1 =0, totalAssignment2 =0;
+
+
+
+
+        System.out.println("Programming IT Courses");
+        System.out.println("Course Entry");
+        printTheLine();
+        for(int i =0; i<courses.length; i++){
+            System.out.println(String.format("Enter name for course # %d:",i+1));
+            courses[i]= new Course(scanner.nextLine());
+        }
 
         System.out.print("Enter students for Java Programming: ");
 
         for (int i = 0; i < javaStudents.length; i++) {
             System.out.println(String.format("Enter name for student # %d:",i+1));
              name = scanner.nextLine();
-            System.out.println(String.format("Enter Assignment1 mark for # %S:",name));
+            System.out.println(String.format("Enter Assignment1 mark for # %s:",name));
             assignment1 = scanner.nextDouble();
-            System.out.println(String.format("Enter Assignment2 mark for # %S:",name));
+            System.out.println(String.format("Enter Assignment2 mark for # %s:",name));
             assignment2 = scanner.nextDouble();
+            scanner.nextLine();
             javaStudents[i] = new Student(name,assignment1,assignment2);
-
+            //calculating total mark for assignment 1 for all students
+            totalAssignment1 += assignment1;
+            totalAssignment2 += assignment2;
 
         }
+
+        assignment1Average = totalAssignment1/6;
+        assignment2Average = totalAssignment2/6;
+        courses[0].averageAssignment1 = assignment1Average;
+        courses[1].averageAssignment2 = assignment2Average;
+        //calculate course average
+        for(int i = 0; i<)
 
         System.out.println("Report: Stats per student");
         printTheLine();
-        System.out.println("Java Programming");
+        System.out.println(courses[0].courseName);
         for(int i =0; i< javaStudents.length; i++){
             System.out.println(javaStudents[i].stdReport());
         }
-//REPORT: Stats per Course
-//================================
+
 
 
 
