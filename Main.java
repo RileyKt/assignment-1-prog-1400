@@ -31,7 +31,7 @@ public class Main {
             courses[i]= new Course(scanner.nextLine());
         }
 
-        System.out.print("Enter students for Java Programming: ");
+        System.out.println("Enter students for Java Programming: ");
 
         for (int i = 0; i < javaStudents.length; i++) {
             System.out.println(String.format("Enter name for student # %d:",i+1));
@@ -51,9 +51,14 @@ public class Main {
         assignment1Average = totalAssignment1/6;
         assignment2Average = totalAssignment2/6;
         courses[0].averageAssignment1 = assignment1Average;
-        courses[1].averageAssignment2 = assignment2Average;
+        courses[0].averageAssignment2 = assignment2Average;
+        courses[0].coursesAverage = (assignment1Average+assignment2Average)/2;
+
         //calculate course average
-        for(int i = 0; i<)
+        System.out.println("Report: Stats per Course");
+        printTheLine();
+        System.out.println(courses[0].coursesReport());
+
 
         System.out.println("Report: Stats per student");
         printTheLine();
