@@ -54,7 +54,7 @@ public class Main {
 
 
         }
-        //generate course reports for both courses
+        //generate course reports for each of the courses
         for (Course course : courses) {
             System.out.println("Report: Stats per Course");
             printTheLine();
@@ -64,26 +64,19 @@ public class Main {
 
 
 
-
-
-
-        //calculate course average
-        System.out.println("Report: Stats per Course");
-        printTheLine();
-        System.out.println(courses[0].coursesReport());
-
-
         System.out.println("Report: Stats per student");
         printTheLine();
-        System.out.println(courses[0].courseName);
-        for(int i =0; i< javaStudents.length; i++){
-            System.out.println(javaStudents[i].stdReport());
+
+        //outputs the reports for each student for each course
+        for (Course course : courses) {
+            System.out.println(course.courseName);
+            for (Student student : course.students) {
+                System.out.println(student.stdReport());
+            }
         }
-
-
-
-
     }
+
+
     public static void printTheLine(){
         System.out.println("=".repeat(40));
     }

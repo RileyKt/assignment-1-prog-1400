@@ -41,6 +41,8 @@ class Course {
 
 
     }
+
+    //adds a student to the course object
     public void addStudent(Student student, int index) {
         students[index] = student;
         averageAssignment1 = (averageAssignment1 * index + student.getAssignment1()) / (index + 1);
