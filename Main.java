@@ -31,28 +31,41 @@ public class Main {
             courses[i]= new Course(scanner.nextLine());
         }
 
-        System.out.println("Enter students for Java Programming: ");
+        for (int i = 0; i < courses.length; i++) {
+            System.out.println("Enter students for " + courses[i].courseName + ": ");
+            for (int j = 0; j < courses[i].students.length; j++) {
+                System.out.println(String.format("Enter name for student # %d:", j + 1));
+                name = scanner.nextLine();
+                System.out.println(String.format("Enter Assignment1 mark for %s:", name));
+                assignment1 = scanner.nextDouble();
+                System.out.println(String.format("Enter Assignment2 mark for %s:", name));
+                assignment2 = scanner.nextDouble();
+                scanner.nextLine();
+                courses[i].addStudent(new Student(name, assignment1, assignment2), j);
+                //calculating total mark for assignment 1 for all students
+                totalAssignment1 += assignment1;
+                totalAssignment2 += assignment2;
+            }
+            assignment1Average = totalAssignment1/6;
+            assignment2Average = totalAssignment2/6;
+            courses[0].averageAssignment1 = assignment1Average;
+            courses[0].averageAssignment2 = assignment2Average;
+            courses[0].coursesAverage = (assignment1Average+assignment2Average)/2;
 
-        for (int i = 0; i < javaStudents.length; i++) {
-            System.out.println(String.format("Enter name for student # %d:",i+1));
-             name = scanner.nextLine();
-            System.out.println(String.format("Enter Assignment1 mark for # %s:",name));
-            assignment1 = scanner.nextDouble();
-            System.out.println(String.format("Enter Assignment2 mark for # %s:",name));
-            assignment2 = scanner.nextDouble();
-            scanner.nextLine();
-            javaStudents[i] = new Student(name,assignment1,assignment2);
-            //calculating total mark for assignment 1 for all students
-            totalAssignment1 += assignment1;
-            totalAssignment2 += assignment2;
 
         }
+        //generate course reports for both courses
+        for (Course course : courses) {
+            System.out.println("Report: Stats per Course");
+            printTheLine();
+            System.out.println(course.coursesReport());
+        }
 
-        assignment1Average = totalAssignment1/6;
-        assignment2Average = totalAssignment2/6;
-        courses[0].averageAssignment1 = assignment1Average;
-        courses[0].averageAssignment2 = assignment2Average;
-        courses[0].coursesAverage = (assignment1Average+assignment2Average)/2;
+
+
+
+
+
 
         //calculate course average
         System.out.println("Report: Stats per Course");

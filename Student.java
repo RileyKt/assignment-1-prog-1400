@@ -23,7 +23,7 @@ class Student {
 
 
     public String stdReport(){
-        String report = String.format("%S:\tAssignment1 - %f.2\tAssignment2 - %f.2\tTotal - %f.2",
+        String report = String.format("%s:\tAssignment1 - %.2f\tAssignment2 - %.2f\tTotal - %.2f",
                 this.name,this.assignment1,this.assignment2,this.totalMarks);
         return report;
     }

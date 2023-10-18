@@ -28,9 +28,6 @@ class Course {
         else if(this.coursesAverage>=80){
             rating = "B";
         }
-        else if(this.coursesAverage>=80){
-            rating = "B";
-        }
         else if(this.coursesAverage>=70){
             rating = "C";
         }
@@ -43,6 +40,11 @@ class Course {
         return rating;
 
 
+    }
+    public void addStudent(Student student, int index) {
+        students[index] = student;
+        averageAssignment1 = (averageAssignment1 * index + student.getAssignment1()) / (index + 1);
+        averageAssignment2 = (averageAssignment2 * index + student.getAssignment2()) / (index + 1);
     }
 
 }
