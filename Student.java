@@ -9,7 +9,6 @@ class Student {
         this.name = name;
         this.assignment1 = assignment1;
         this.assignment2 = assignment2;
-
         this.totalMarks = this.assignment1+this.assignment2;
     }
 
